@@ -1,5 +1,5 @@
 
-let saldoUser = Number(prompt("¿Cuanta plata tiene en el banco?"))
+let saldoUser = Number(prompt("¿Cuantas Sillas tiene en Stock?"))
 
 if(isNaN(saldoUser)){
     saldoUser = null
@@ -7,16 +7,16 @@ if(isNaN(saldoUser)){
 
 let saldo = saldoUser ?? 0 //null undefined
 let bandera = true
-let montoMinimoParaPoderPedirUnRePrestamo = 8000
+let AlquilerMinimoDeSillas = 10
 let deuda = 0
 
 while(bandera){
-    let menu = Number(prompt("Bienvenidos a Perrito con Chaucha Bank\n ¿Que quiere Hacer?\n 1- depositar\n 2- ver saldo\n 3- retirar\n 4- transferencia\n 5- prestamo\n 6- ver deuda \n 8- salir"))
+    let menu = Number(prompt("Alquileres de Sillas para Fiestas\n ¿Que quiere Hacer?\n 1- Sumar Sillas Compradas\n 2- Ver Stock Actual\n 3- Quitar Sillas\n 4- Alquilar Sillas\n 5- Comprar por Comision\n 6- ver deuda \n 8- salir"))
 
     if (!isNaN(menu)){
     switch (menu) {
         case 1:
-            let montoDeposito = Number(prompt("¿Cuanto quiere ingresar?"))
+            let montoDeposito = Number(prompt("¿Cuantos Sillas agrega?"))
             if(montoDeposito > 0){
             //Saldo = saldo + monto
             saldo += montoDeposito
@@ -28,10 +28,10 @@ while(bandera){
             alert(saldo)
         break
         case 3:
-            let montoRetirar = Number(prompt("¿Cuanto quiere sacar?"))
+            let montoRetirar = Number(prompt("¿Cuanto sillas quiere quitar?"))
             if(montoRetirar > 0){//Que no sea negativo
                 if(montoRetirar > saldo){//Que no quiera rettirar mas plata que la que tiene
-                    alert("no podes retirar mas dinero que el que tienes...")
+                    alert("no podes retirar mas sillas que las que tienes...")
                 }else{
                     saldo -= montoRetirar
                 }
@@ -40,7 +40,7 @@ while(bandera){
             }
         break
         case 4:
-            let alias = prompt("¿Cual es el alias de la persona a transferir?")
+            let alias = prompt("¿A quien le voy a alquilar?")
             if(alias == null || alias.length <= 8){
                 alert("Tiene que ingresar un alias correcto")
             }else{
@@ -57,9 +57,9 @@ while(bandera){
             }
         break
         case 5:
-            if(saldo > montoMinimoParaPoderPedirUnRePrestamo){
+            if(saldo > AlquilerMinimoDeSillas){
                 alert("Usted puede pedir prestado")
-                let montoAPedirPrestado = Number(prompt("¿Cuand quiere pedir prestado?"))
+                let montoAPedirPrestado = Number(prompt("¿Cuand quiere Alquilar?"))
                 if(montoAPedirPrestado > 0) {
                     alert("Usted nos va a tener que devolver" + montoAPedirPrestado * 1.5)
                     saldo += montoAPedirPrestado
